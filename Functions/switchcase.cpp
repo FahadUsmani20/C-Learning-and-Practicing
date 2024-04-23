@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    int num;
+    int num = 1;
 
     switch(num)
     {
