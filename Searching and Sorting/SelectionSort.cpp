@@ -10,9 +10,7 @@ void selectionSort(int arr[], int n)
         {
             if(arr[i] > arr[j])
             {
-                int temp = arr[j];
-                arr[j] = arr[i];
-                arr[i] = temp;
+                swap(arr[i], arr[j]);
             }
         }
     }

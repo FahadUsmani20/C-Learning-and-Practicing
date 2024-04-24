@@ -6,7 +6,7 @@ using namespace std;
 int mySqrt(int x) 
 {
     long start = 0, end = x, mid;
-    while ( start <= end)
+    while (start <= end)
     {
         mid =  start + (end -  start) / 2;
         if ( mid * mid <= x && (mid + 1) * (mid + 1) > x)
