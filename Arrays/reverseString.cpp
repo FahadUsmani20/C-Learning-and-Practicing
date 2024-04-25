@@ -20,8 +20,7 @@ void reverseString(char arr[], int length)
 
     while(start < end)
     {
-        swap(arr[start], arr[end]);
-        start++, end--;
+        swap(arr[start++], arr[end--]);
     }
 }
 
