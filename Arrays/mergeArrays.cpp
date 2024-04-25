@@ -3,10 +3,9 @@
 
 using namespace std;
 
-void mergeArrays(int arr1[], int arr2[], int size1, int size2)
+void mergeArrays(int arr1[], int arr2[],int arr3[], int size1, int size2)
 {
-    int arr3[size1+size2], ind = 0;
-    int i = 0, j = 0;
+    int i = 0, j = 0, ind = 0;
 
     while(i < size1 && j < size2)
     {
@@ -29,11 +28,6 @@ void mergeArrays(int arr1[], int arr2[], int size1, int size2)
     while(j < size2)
     {
         arr3[ind++] = arr2[j++];
-    }
-    
-    for(int i = 0; i < size1+size2; i++)
-    {
-        cout << arr3[i] << " ";
     }
 }
 
@@ -71,6 +65,11 @@ int main()
     cin >> size2;
     
     take_input(arr2, size2);
+    
+    int arr3[size1+size2];
 
-    mergeArrays(arr1, arr2, size1, size2);
+    mergeArrays(arr1, arr2, arr3, size1, size2);
+    print_Array(arr3, size1+size2);
+
+    return 0;
 }
