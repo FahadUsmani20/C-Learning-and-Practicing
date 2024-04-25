@@ -12,7 +12,7 @@ bool valid(char ch) // Function To check if character is valid
     return false;
 }
 
-char isLower(char s)// Convert characters to lower case
+char isLower(char s) // Convert characters to lower case
 {
     if(s >= 'A' && s <= 'Z')
     {
@@ -54,7 +54,7 @@ int main()
     cin >> s;
     
     /*
-        Test Strings: 
+        Test Strings:
         A man, a plan, a canal: Panama  
         race a car
         " "

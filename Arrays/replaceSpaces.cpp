@@ -2,14 +2,14 @@
 
 using namespace std;
 
-string removeOccurences(string str, string s)
+bool removeOccurences(string str, string s)
 {
-    while(str.length() != 0 && str.find(s) < str.length())
+    if(str.find(s))
     {
-        str.erase(str.find(s), s.length());
+        return true;
     }
 
-    return str;
+    return false;
 }
 
 int main()

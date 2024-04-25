@@ -22,7 +22,5 @@ int main()
 
     cout << "Length: " << get_length(names);
 
-
-
     return 0;
 }
