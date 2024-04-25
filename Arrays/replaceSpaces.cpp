@@ -2,28 +2,27 @@
 
 using namespace std;
 
-void replaceSpace(string s)
+string removeOccurences(string str, string s)
 {
-    for(int i = 0; i < s.length(); i++)
+    while(str.length() != 0 && str.find(s) < str.length())
     {
-        if(s[i] == ' ')
-        {
-            cout<<"@40";
-        }
-        else
-        {
-            cout<<s[i];
-        }
+        str.erase(str.find(s), s.length());
     }
+
+    return str;
 }
 
 int main()
 {
-    string s;
+    string s, part;
 
     cout << "Enter String: ";
     getline(cin, s);
     
-    replaceSpace(s);
+    cout << "Enter Part: ";
+    getline(cin, part);
+    
+    s = removeOccurences(s, part);
+    cout << "New String: " << s;
     return 0;
 }
