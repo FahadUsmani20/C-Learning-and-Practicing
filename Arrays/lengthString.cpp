@@ -20,7 +20,7 @@ int main()
     cout << "Enter Name: ";
     cin >> names;
 
-    cout << "Length of array is: " << get_length(names);
+    cout << "Length: " << get_length(names);
 
 
 
