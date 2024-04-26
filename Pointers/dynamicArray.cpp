@@ -26,7 +26,7 @@ int main()
         cout << arr[i] << " ";// we can use *(arr + i)
     }
 
-
+    delete [] arr;
 
     return 0;
 }
