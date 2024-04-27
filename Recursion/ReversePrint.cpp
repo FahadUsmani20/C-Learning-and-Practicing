@@ -2,14 +2,16 @@
 
 using namespace std;
 
-int power(int n)
+void reverse(int n)
 {
-    if (n == 0)
+    cout << n << " ";
+    if (n == 1)
     {
-        return 1;
+        return;
     }
 
-    return 2 * power(n-1);
+    reverse(n-1);
+
 }
 
 int main()
@@ -18,7 +20,7 @@ int main()
     cout<< "Number: ";
     cin >> n;
 
-    cout << "Power: " << power(n) << endl; 
+    reverse(n); 
     
     return 0;
 }
