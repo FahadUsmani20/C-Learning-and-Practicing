@@ -17,6 +17,7 @@ bool binary_search(int arr[],int key, int start, int end)
     {
         return true;
     }
+    
     if(arr[mid] < key)
     {
         binary_search(arr, key, mid+1, end);
