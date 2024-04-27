@@ -16,6 +16,7 @@ void merge(int arr[], int start, int mid, int end)
     {
         a[i] = arr[start+i];
     }
+    
     for(int i = 0; i < m; i++)
     {
         b[i] = arr[mid+1+i];
