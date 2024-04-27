@@ -1,24 +1,24 @@
-#include<iostream>
-#include<string>
-#include<stack>
-
+#include<bits/stdc++.h>
 using namespace std;
+
+void explainStack()
+{
+    stack<int> st;
+
+    st.push(1);
+    st.push(2);
+    st.push(3);
+    st.push(4);
+    st.push(5);
+    st.emplace(6);
+
+    cout << st.top() <<endl;
+    cout << st.size() <<endl;
+    cout << st.empty() <<endl; // Returns True or False
+}
 
 int main()
 {
-    stack<string> s;
-
-    s.push("Fahad");
-    s.push("Sahil");
-    s.push("Pervez");
-    s.push("Huma");
-
-    cout << "TOP: " << s.top() <<endl;
-    s.pop();
-    cout << "TOP: " << s.top() <<endl;
-
-    cout << "Size: " << s.size()<<endl;
-    
-    cout << "Empty: "<<s.empty() <<endl;
+    explainStack();
     return 0;
 }
