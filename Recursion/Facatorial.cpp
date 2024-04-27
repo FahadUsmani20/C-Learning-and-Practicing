@@ -19,7 +19,7 @@ int main()
     cin >> n;
 
     cout << "Factorial: " << factorial(n) << endl; 
-    
+     
 
     return 0;
 }
