@@ -1,25 +1,27 @@
-#include<iostream>
-#include<string>
-#include<queue>
-
+#include<bits/stdc++.h>
 using namespace std;
+
+void explainQueue()
+{
+    queue<int> q;
+
+    q.push(1);
+    q.push(2);
+    q.push(3);
+    q.push(4);
+    q.push(5);
+    q.emplace(6);
+
+    cout << q.front() <<endl;
+    cout << q.back() <<endl;
+    q.pop();
+    cout << q.front() <<endl;
+    cout << q.size() <<endl;
+    cout << q.empty() <<endl; // Returns True or False
+}
 
 int main()
 {
-    queue<string> q;
-
-    q.push("Fahad");
-    q.push("Sahil");
-    q.push("Pervez");
-    q.push("Huma");
-
-    cout << "First: " << q.front() <<endl;
-    q.pop();
-    
-    cout << "First: " << q.front() <<endl;
-
-    cout << "Size: " << q.size()<<endl;
-    
-    cout << "Empty: "<<q.empty() <<endl;
+    explainQueue();
     return 0;
 }
