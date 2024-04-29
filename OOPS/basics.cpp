@@ -2,6 +2,15 @@
 
 using namespace std;
 
+// Empty class is allocated 1 byte of memory
+
+/*
+Access Modifiers:
+Public: Can be inherited by Child Classes and accesed outside the Parent class
+Private: Cannot be inherited or accessed outside the Parent class
+Protected: Can be inherited but cannot be accessed outside the Parent class
+*/
+
 class student
 {
     public:
@@ -25,7 +34,9 @@ int main()
     a.age = 25;
     a.gender = true;
     */
-
+   
+   /*
+  Static Allocation
     student arr[3];
     for(int i = 0; i < 3; i++)
     {
@@ -43,5 +54,19 @@ int main()
     {
         arr[i].printInfo();
     }
+   */ 
 
+   /*
+  Dynamic Allocation
+
+   student *a = new student;
+
+   a->name = "hans";
+   a->age = 22;
+   a->gender = 1;
+
+   a->printInfo();
+   */
+  
+   
 }
