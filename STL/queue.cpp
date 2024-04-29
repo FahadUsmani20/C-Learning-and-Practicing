@@ -14,7 +14,9 @@ void explainQueue()
 
     cout << q.front() <<endl;
     cout << q.back() <<endl;
+    
     q.pop();
+    
     cout << q.front() <<endl;
     cout << q.size() <<endl;
     cout << q.empty() <<endl; // Returns True or False
