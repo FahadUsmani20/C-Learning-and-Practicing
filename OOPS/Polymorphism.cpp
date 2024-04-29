@@ -7,12 +7,14 @@ Compile Time Polymorphism / Static Polymorphism
 
 - Function Overloading - Different type or number of arguments in a function with the same name
 - Operator Overloading
-*/
 
-/*
 Runtime Time Polymorphism / Dynamic Polymorphism
+- Method Overloading: Re-Implementation of methods or functions
 
-- Method Overloading: Reimplement
+Abstraction
+
+- Show only essential information
+- Hiding unnecessary information form users using access modifiers
 */
 
 class A
