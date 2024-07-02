@@ -1,70 +1,90 @@
 #include<iostream>
-#include<algorithm>
 
 using namespace std;
 
-//Quick Sort
-
-void swap(int arr[], int i, int j)
+void getEle(int* arr, int size)
 {
-    int temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
+    for(int i = 0; i < size; i++)
+    {
+        cin >> arr[i];
+    }
 }
 
-int partition(int arr[], int start, int end)
+void printEle(int* arr, int size)
 {
-    int pivot = arr[end];
-
-    int i = start - 1;
-    for(int j = start; j < end; j++)
+    for(int i = 0; i < size; i++)
     {
-        if(arr[j] < pivot)
+        cout << arr[i] << " ";
+    }
+}
+
+int partition(int* arr, int start, int end)
+{
+    // Create Pivot
+    int pivot = arr[start], count = 0;
+
+    // Count Number of elements smaller than pivot
+    for(int i = start+1; i <= end; i++)
+    {
+        if(arr[i] < pivot)
         {
-            i++;
-            swap(arr, i, j);
+            count++;
         }
     }
+    // Swap Pivot element with element at [start+count];
+    int pivotIndex = start + count;
+    swap(arr[pivotIndex], arr[start]);
 
-    swap(arr, i+1, end);
+    // Order elements such that smaller elements reside to the left of pivot and larger elements reside to the right of pivot
+    int i = start, j = end;
 
-    return i+1;
-}
-
-void quickSort(int arr[], int start, int end)
-{
-    if(start < end)
+    while(i < pivotIndex && j > pivotIndex)
     {
-        int pi = partition(arr, start, end);
+        while(arr[i] < pivot && i < pivotIndex)
+        {
+            i++;
+        }
+        
+        while(arr[j] > pivot && j > pivotIndex)
+        {
+            j--;
+        }
 
-        quickSort(arr, start, pi-1);
-        quickSort(arr, pi+1, end);
+        swap(arr[i++], arr[j--]);
     }
+
+    return pivotIndex;
 }
 
+void quickSort(int* arr, int start, int end)
+{
+    if(start >= end)
+    {
+        return;
+    }
+
+    int pivot = partition(arr, start, end);
+    quickSort(arr, start, pivot-1);
+    quickSort(arr, pivot+1, end);
+}
 
 int main()
 {
-    int arr[] = {1,5,3,7,4,9,2};
+    int size;
+    cout << "Enter Size of Array: ";
+    cin >> size;
 
-    cout << "Before Sorting: "<<endl;
+    int* arr = new int[size];
 
-    for(int i = 0; i < 7; i++)
-    {
-        cout << arr[i] << " ";
-    }
+    cout << "Enter Elements in the Array: ";
+    getEle(arr, size);
 
-    cout <<endl;
+    quickSort(arr, 0, size-1);
+
+    cout << "Sorted Array: " << endl;
+    printEle(arr, size);
+
+    delete []arr;
     
-    cout << "After Sorting: "<<endl;
-    quickSort(arr,0, 6);
-
-    for(int i = 0; i < 7; i++)
-    {
-        cout << arr[i] << " ";
-    }
-
-    cout <<endl;
-
     return 0;
 }

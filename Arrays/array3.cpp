@@ -69,10 +69,10 @@ int main()
     }
 
     int l = arr_sub(arr, size);
-    cout <<"Lenght of longest contigous subarray: " << l <<endl;
+    cout <<"Length of longest contigous subarray: " << l <<endl;
     
     int x = arr_sub_optimized(arr, size);
-    cout <<"Lenght of longest contigous subarray: " << x <<endl;
+    cout <<"Length of longest contigous subarray: " << x <<endl;
     
 
     return 0;

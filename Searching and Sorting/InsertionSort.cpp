@@ -1,44 +1,48 @@
 #include<iostream>
+#include<math.h>
 
 using namespace std;
 
-void insertionSort(int arr[], int n)
+void insertion_sort(int arr[], int size)
 {
-    for(int i = 1; i < n; i++)
+    for(int i  =1; i < size; i++)
     {
         int current = arr[i];
+
         int j = i-1;
 
-        while(arr[j] > current && j>=0)
+        while(arr[j] > current && j >= 0)
         {
             arr[j+1] = arr[j];
             j--;
         }
         arr[j+1] = current;
-    }
+    } 
 }
 
 int main()
 {
-    int n;
-    cout << "Enter Size: " <<endl;
-    cin >> n;
 
-    int arr[n];
-    cout << "Enter Elements:" << endl;
-    for(int i = 0; i < n; i++)
+    int size;
+    cout << "Size: ";
+    cin >> size;
+
+    int arr[size];
+    cout << "Elements: ";
+    
+    for(int i = 0; i < size; i++)
     {
         cin >> arr[i];
     }
-    
-    insertionSort(arr, n);
 
-    cout << "After Sorting:" << endl;
-    for(int i = 0; i < n; i++)
+    cout << "Sorted Array" << endl;
+    
+    insertion_sort(arr, size);
+    
+    for(int i = 0; i < size; i++)
     {
         cout << arr[i] << " ";
     }
-    
-
     return 0;
 }
+

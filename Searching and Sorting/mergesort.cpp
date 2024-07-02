@@ -2,92 +2,110 @@
 
 using namespace std;
 
-//Merge Sort
-
-void merge(int arr[], int start, int mid, int end)
+void getEle(int* arr, int size)
 {
-    int n = mid - start + 1;
-    int m = end - mid;
-    
-    int a[n];
-    int b[m];
-
-    for(int i = 0; i < n; i++)
+    for(int i = 0; i < size; i++)
     {
-        a[i] = arr[start+i];
+        cin >> arr[i];
+    }
+}
+
+void printEle(int* arr, int size)
+{
+    for(int i = 0; i < size; i++)
+    {
+        cout << arr[i] << " ";
+    }
+}
+
+void merge(int* arr, int start, int end)
+{
+    int mid = start + (end-start)/2;
+    int len1 = mid - start +1;
+    int len2 = end - mid;
+
+    //Creation of arrays
+    int* array1 = new int[len1];
+    int* array2 = new int[len2];
+
+    int mainInd = start;
+
+    //Copying Arrays
+    for(int i= 0; i < len1; i++)
+    {
+        array1[i] = arr[mainInd++];
     }
     
-    for(int i = 0; i < m; i++)
+    for(int i= 0; i < len2; i++)
     {
-        b[i] = arr[mid+1+i];
+        array2[i] = arr[mainInd++];
     }
 
-    int i = 0, j = 0;
-    int k = start;
+    mainInd = start;
 
-    while(i < n && j < m)
+    // Merging The Sorted Arrays
+    int index1 = 0, index2 = 0;
+
+    while(index1 < len1 && index2 < len2)
     {
-        if(a[i] < b[j])
+        if(array1[index1] < array2[index2])
         {
-            arr[k] = a[i];
-            k++; i++;
+            arr[mainInd++] = array1[index1++];
         }
         else
         {
-            arr[k] = b[j];
-            k++; j++;
+            arr[mainInd++] = array2[index2++];
         }
     }
 
-    while(i < n)
+    while(index1 < len1)
     {
-            arr[k] = a[i];
-            k++; i++;
+        arr[mainInd++] = array1[index1++];
     }
-    
-    while(j < m)
+
+    while(index2 < len2)
     {
-            arr[k] = b[j];
-            k++; j++;
+        arr[mainInd++] = array2[index2++];
     }
+
+    delete []array1;
+    delete []array2;
 }
 
-void mergeSort(int arr[], int start, int end)
+void mergeSort(int* arr, int start, int end)
 {
-    if(start < end)
-    {   
-        int mid = start + (end - start)/2;
-        
-        mergeSort(arr, start, mid);
-        mergeSort(arr, mid+1, end);
-
-        merge(arr, start, mid, end);  
+    if(start >= end)
+    {
+        return;
     }
+
+    int mid = start + (end-start)/2;
+    // Left Half Sorting
+    mergeSort(arr, start, mid);
+
+    // Right Half Sorting
+    mergeSort(arr, mid+1, end);
+
+    merge(arr, start, end);
 }
-
-
 
 int main()
 {
-    int arr[] = {1,5,3,7,4,9,2};
-    cout << "Before Sorting: "<<endl;
+    int size;
+    cout << "Enter Size of Array: ";
+    cin >> size;
 
-    for(int i = 0; i < 7; i++)
-    {
-        cout << arr[i] << " ";
-    }
+    int* arr = new int[size];
 
-    cout <<endl;
+    cout << "Enter Elements in the Array: ";
+    getEle(arr, size);
+
+    mergeSort(arr, 0, size-1);
+
+    cout << "Sorted Array: " << endl;
+    printEle(arr, size);
+
+    delete []arr;
     
-    cout << "After Sorting: "<<endl;
-    mergeSort(arr,0, 7);
-
-    for(int i = 0; i < 6; i++)
-    {
-        cout << arr[i] << " ";
-    }
-
-    cout <<endl;
-
     return 0;
 }
