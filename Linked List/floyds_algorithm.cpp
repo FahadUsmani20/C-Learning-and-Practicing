@@ -36,7 +36,7 @@ void insertAtTail(Node* &head, int val)
     temp->next = n;
 }
 
-bool detectCycle(Node* head)
+bool detectCycle(Node* head) // O(N)
 {
     Node* fast = head;
     Node* slow = head;
